@@ -5,7 +5,7 @@ header("Content-Type: application/xml; charset=utf-8");
 $site = "https://elektrik-syktyvkar.ru";
 
 // === ПОДКЛЮЧЕНИЕ К БД ===
-$mysqli = new mysqli("localhost", "u1851662_default", "5OBw9nvRSA3Al7V0", "u1851662_adminka");
+$mysqli = new mysqli("localhost", "default", "", "");
 $mysqli->set_charset("utf8mb4");
 
 if ($mysqli->connect_error) {
@@ -51,3 +51,4 @@ while ($row = $result->fetch_assoc()) {
 }
 
 echo '</urlset>';
+
