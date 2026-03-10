@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин</title>
+    <style>
+        .product { margin-bottom: 10px; }
+        .cart { margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+<h2>Добавить / Редактировать товар</h2>
+<form id="productForm">
+    <input type="hidden" name="product_id" id="product_id">
+    <input type="text" name="name" id="name" placeholder="Название товара" required><br>
+    <input type="number" name="price" id="price" placeholder="Цена" required><br>
+    <textarea name="description" id="description" placeholder="Описание"></textarea><br>
+    <button type="submit">Сохранить товар</button>
+</form>
+
+<hr>
+<h2>Список товаров</h2>
+<input type="text" id="searchInput" placeholder="Поиск товара...">
+<div id="productList"></div>
+
+<h2>Корзина</h2>
+<div class="cart" id="cart"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    loadProducts();
+    loadCart();
+document.getElementById('searchInput').addEventListener('input', function() {
+    const query = this.value.trim();
+    loadProducts(query);
+});
+    document.getElementById('productForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = new FormData(this);
+        const isEdit = data.get('product_id');
+
+        fetch('ajax/' + (isEdit ? 'edit_product.php' : 'add_product.php'), {
+            method: 'POST',
+            body: data
+        })
+        .then(() => {
+            this.reset();
+            document.getElementById('product_id').value = '';
+            loadProducts();
+        });
+    });
+});
+
+
+function loadProducts(query = '') {
+    fetch('ajax/get_cart.php?products=1&search=' + encodeURIComponent(query))
+        .then(res => res.json())
+        .then(data => {
+            const list = document.getElementById('productList');
+            list.innerHTML = '';
+            if (data.length === 0) {
+                list.innerHTML = '<p>Ничего не найдено</p>';
+                return;
+            }
+            data.forEach(prod => {
+                const div = document.createElement('div');
+                div.className = 'product';
+                div.innerHTML = `
+                    <strong>${prod.name}</strong> — ${prod.price} ₽<br>
+                    <button onclick="addToCart(${prod.id})">В корзину</button>
+                    <button onclick="editProduct(${JSON.stringify(prod)})">Редактировать</button>
+                `;
+                list.appendChild(div);
+            });
+        });
+}
+
+
+function editProduct(prod) {
+    document.getElementById('product_id').value = prod.id;
+    document.getElementById('name').value = prod.name;
+    document.getElementById('price').value = prod.price;
+    document.getElementById('description').value = prod.description;
+}
+
+function addToCart(productId) {
+    fetch('ajax/add_to_cart.php', {
+        method: 'POST',
+        body: new URLSearchParams({ product_id: productId })
+    }).then(() => loadCart());
+}
+
+function removeFromCart(productId) {
+    fetch('ajax/remove_from_cart.php', {
+        method: 'POST',
+        body: new URLSearchParams({ product_id:

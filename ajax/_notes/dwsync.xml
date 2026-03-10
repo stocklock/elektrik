@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="send_invoice.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133962994643225208" remote="133962994200000000" Dst="0" />
+<file name="generate_contract.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963015820016197" remote="133963015200000000" Dst="0" />
+<file name="validate_inn.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963037100575343" remote="133963036200000000" Dst="0" />
+<file name="admin_actions.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963039261269365" remote="133963038600000000" Dst="0" />
+<file name="get_partner_card.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963042926624900" remote="133963042200000000" Dst="0" />
+<file name="save_partner_card.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963043446306586" remote="133963042800000000" Dst="0" />
+<file name="add_product.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963045553184864" remote="133963044600000000" Dst="0" />
+<file name="edit_product.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963046161946001" remote="133963045200000000" Dst="0" />
+<file name="add_to_cart.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963046676550148" remote="133963045800000000" Dst="0" />
+<file name="remove_from_cart.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963047077761893" remote="133963046400000000" Dst="0" />
+<file name="checkout.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963048881041569" remote="133963048200000000" Dst="0" />
+<file name="get_cart.php" server="server5.hosting.reg.ru/www/elektrik-syktyvkar.ru/" local="133963052735267758" remote="133963051800000000" Dst="0" />
+</dwsync>
