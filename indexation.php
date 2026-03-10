@@ -3,7 +3,7 @@
 $host = 'localhost';
 $db   = 'u1851662_adminka';
 $user = 'u1851662_default';
-$pass = '5OBw9nvRSA3Al7V0';
+$pass = 'pass';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -42,3 +42,4 @@ try {
 } catch (PDOException $e) {
     echo "Ошибка: " . $e->getMessage();
 }
+
